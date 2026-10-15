@@ -8,14 +8,11 @@ async function loadSnippet() {
     const response = await fetch("snippet.json?t=" + Date.now(), {cache:"no-store"});
     if (!response.ok) throw new Error("load");
     const data = await response.json();
-    if (![data.title,data.revision,data.instructions,data.code].every(v => typeof v === "string")) throw new Error("format");
-    byId("title").textContent = data.title;
-    byId("revision").textContent = "Revision " + data.revision;
-    byId("instructions").textContent = data.instructions;
+    if (![data.code].every(v => typeof v === "string")) throw new Error("format");
     code.value = data.code;
     byId("count").textContent = data.code.length.toLocaleString() + " characters";
     copy.disabled = select.disabled = false;
-    status.textContent = "Ready to copy.";
+    status.textContent = "";
   } catch {
     status.textContent = "Could not load the latest snippet. Check your connection and refresh.";
   }
