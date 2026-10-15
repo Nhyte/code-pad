@@ -1,0 +1,6 @@
+{
+  "title": "Outlook object check",
+  "revision": "001",
+  "instructions": "Run this in a temporary Python file with classic Outlook open. It creates an unsaved, unaddressed mail item and prints two diagnostic lines. It does not send email.",
+  "code": "import win32com.client as win32\nmail = win32.GetActiveObject(\"Outlook.Application\").CreateItem(0)\nobj = getattr(mail, \"_oleobj_\", None)\nprint(type(mail).__name__, type(obj).__name__)\nprint(hasattr(obj, \"GetIDsOfNames\"))\n"
+}
