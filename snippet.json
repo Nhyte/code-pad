@@ -1,3 +1,3 @@
 {
-  "code": "# HTTPS certificate validation using the operating system trust store\ntruststore>=0.10,<0.11\n\n# Time-zone data for Central-time scheduling and restrictions\ntzdata>=2025.2,<2027\n\n# HTTP requests used by application checks\nrequests>=2.32,<3\n\n# Microsoft Edge browser automation\nselenium==4.50.0\n\n# Classic Outlook email integration on Windows\npywin32==312; sys_platform == \"win32\"\r\n"
+  "code": "[build-system]\nrequires = [\"setuptools>=68\"]\nbuild-backend = \"setuptools.build_meta\"\n\n[project]\nname = \"AppHealthChecker\"\nversion = \"1.1.0\"\nrequires-python = \">=3.12\"\n# Keep the application dependency list in requirements.txt only.\ndynamic = [\"dependencies\"]\n\n[project.scripts]\napp-health-checker = \"app_health_checker.cli:main\"\n\n[tool.setuptools.dynamic]\ndependencies = {file = [\"requirements.txt\"]}\n\n[tool.setuptools.packages.find]\ninclude = [\"app_health_checker*\"]\n"
 }
