@@ -1,3 +1,3 @@
 {
-  "code": "        self.poll_id=self.root.after(50,self.poll)\n        from .window_placement import restore_placement\n        restore_placement(root, prefs.get(\"placement\"))\n"
+  "code": "    if root.winfo_ismapped():\n        root.after_idle(restore)\n    else:\n        def mapped(event):\n            if event.widget is root:\n                root.unbind(\"<Map>\", binding)\n                root.after_idle(restore)\n\n        binding = root.bind(\"<Map>\", mapped, add=\"+\")\n"
 }
