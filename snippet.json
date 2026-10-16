@@ -1,3 +1,3 @@
 {
-  "code": "python -m PyInstaller --onefile --windowed --noupx --name AppHealthCheckerPilot --add-data \"config/applications:config/applications\" --add-data \"tests/fixtures/synthetic-soapui.xml:tests/fixtures\" --collect-data tzdata --collect-data selenium --collect-submodules selenium.webdriver.edge --copy-metadata selenium --copy-metadata truststore --copy-metadata requests --copy-metadata tzdata --copy-metadata pywin32 --hidden-import win32timezone --distpath app-pilot-build/dist --workpath app-pilot-build/work --specpath . packaged_desktop.py\n"
+  "code": "            elif isinstance(exc,ImportError): category,message=\"framework\",CODES[code]+\"; module=\"+str(getattr(exc,\"name\",None) or \"unknown\")\n"
 }
