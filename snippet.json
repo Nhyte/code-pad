@@ -1,3 +1,3 @@
 {
-  "code": "python -m PyInstaller --onedir --windowed --name AHCExeProbe --distpath exe-probe-build/dist --workpath exe-probe-build/work --specpath exe-probe-build exe_probe.py\n"
+  "code": "python -m PyInstaller --onefile --windowed --name AHCExeProbeSingle --distpath exe-probe-single/dist --workpath exe-probe-single/work --specpath exe-probe-single exe_probe.py\n"
 }
