@@ -1,3 +1,3 @@
 {
-  "code": "        elif status == \"WARN\":\n            if any(d.get(\"step\") == \"certificate\" and d.get(\"status\") == \"WARN\"\n                   for d in details):\n                message = \"Functional checkout passed with certificate warning\"\n            else:\n                message = \"Endpoint checks partially passed; inspect endpoint details\"\n"
+  "code": "        from .ui_layout import scrollable_text\n        from .window_placement import place_beside\n        text = scrollable_text(dialog, wrap=\"word\")\n        place_beside(dialog, self.root)\n"
 }
