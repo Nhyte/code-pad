@@ -1,3 +1,3 @@
 {
-  "code": "        apps = validate_catalog(apps)\n        from .catalog_metadata import apply_metadata\n        import sys\n        metadata_root = (\n            Path(sys.executable).resolve().parent\n            if getattr(sys, \"frozen\", False)\n            else Path(__file__).resolve().parent.parent\n        )\n        apps, local['_metadata_status'] = apply_metadata(\n            apps, metadata_root / 'catalog-metadata.json'\n        )\n        return apps, local\n"
+  "code": "    metadata = local.get('_metadata_status', 'AYS metadata: Not installed; using application definitions')\n    metadata_state = 'READY' if metadata == 'AYS metadata: Loaded' else 'WARNING' if metadata.startswith('AYS metadata: Rejected') else 'NOT REQUIRED'\n    add('AYS metadata', metadata_state, metadata)\n"
 }
